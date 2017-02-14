@@ -1,0 +1,263 @@
+<function _name="crbr">
+    <equal left="<stringChunk mode="allBefore" find="
+"><param _name="_body"/></stringChunk>" right="">
+        <true>
+            <equal left="<stringChunk mode="allAfter" find="
+"><param _name="_body"/></stringChunk>" right="">
+                <true>
+                    <param _name="_body" />
+                </true>
+                <false>
+                    <stringChunk mode="allBefore" find="
+">
+                        <param _name="_body" />
+                    </stringChunk>
+                    <br />
+                    <crbr>
+                        <stringChunk mode="allAfter" find="
+">
+                            <param _name="_body" />
+                        </stringChunk>
+                    </crbr>
+                </false>
+            </equal>
+        </true>
+        <false>
+            <stringChunk mode="allBefore" find="
+">
+                <param _name="_body" />
+            </stringChunk>
+            <br />
+            <crbr>
+                <stringChunk mode="allAfter" find="
+">
+                    <param _name="_body" />
+                </stringChunk>
+            </crbr>
+        </false>
+    </equal>
+</function>
+<function _name="delt">
+    <equal left="<param _name="_body"/>" right="">
+        <false>
+            <equal left="<stringChunk mode="allAfter" find="<"><param _name="_body"/></stringChunk>" right="">
+                <true>
+                    <equal left="<stringChunk mode="allBefore" find="<"><param _name="_body"/></stringChunk>" right="">
+                        <true>
+                            <param _name="_body" />
+                        </true>
+                        <false>
+                            <stringChunk mode="allBefore" find="<">
+                                <param _name="_body" />
+                            </stringChunk>
+                            &lt;
+                            <delt>
+                                <stringChunk mode="allAfter" find="<">
+                                    <param _name="_body" />
+                                </stringChunk>
+                            </delt>
+                        </false>
+                    </equal>
+                </true>
+                <false>
+                    <stringChunk mode="allBefore" find="<">
+                        <param _name="_body" />
+                    </stringChunk>
+                    &lt;
+                    <delt>
+                        <stringChunk mode="allAfter" find="<">
+                            <param _name="_body" />
+                        </stringChunk>
+                    </delt>
+                </false>
+            </equal>
+        </false>
+    </equal>
+</function>
+<function _name="delamp">
+    <equal left="<param _name="_body"/>" right="">
+        <false>
+            <equal left="<stringChunk mode="allAfter" find="&"><param _name="_body"/></stringChunk>" right="">
+                <true>
+                    <equal left="<stringChunk mode="allBefore" find="&"><param _name="_body"/></stringChunk>" right="">
+                        <true>
+                            <param _name="_body" />
+                        </true>
+                        <false>
+                            <stringChunk mode="allBefore" find="&">
+                                <param _name="_body" />
+                            </stringChunk>
+                            &amp;
+                            <delamp>
+                                <stringChunk mode="allAfter" find="&">
+                                    <param _name="_body" />
+                                </stringChunk>
+                            </delamp>
+                        </false>
+                    </equal>
+                </true>
+                <false>
+                    <stringChunk mode="allBefore" find="&">
+                        <param _name="_body" />
+                    </stringChunk>
+                    &amp;
+                    <delamp>
+                        <stringChunk mode="allAfter" find="&">
+                            <param _name="_body" />
+                        </stringChunk>
+                    </delamp>
+                </false>
+            </equal>
+        </false>
+    </equal>
+</function>
+<function _name="desp">
+    <equal left="<param _name="_body"/>" right="">
+        <false>
+            <equal left="<stringChunk mode="allAfter" find=" "><param _name="_body"/></stringChunk>" right="">
+                <true>
+                    <equal left="<stringChunk mode="allBefore" find=" "><param _name="_body"/></stringChunk>" right="">
+                        <true>
+                            <param _name="_body" />
+                        </true>
+                        <false>
+                            <stringChunk mode="allBefore" find=" ">
+                                <param _name="_body" />
+                            </stringChunk>
+                            &nbsp;
+                            <desp>
+                                <stringChunk mode="allAfter" find=" ">
+                                    <param _name="_body" />
+                                </stringChunk>
+                            </desp>
+                        </false>
+                    </equal>
+                </true>
+                <false>
+                    <stringChunk mode="allBefore" find=" ">
+                        <param _name="_body" />
+                    </stringChunk>
+                    &nbsp;
+                    <desp>
+                        <stringChunk mode="allAfter" find=" ">
+                            <param _name="_body" />
+                        </stringChunk>
+                    </desp>
+                </false>
+            </equal>
+        </false>
+    </equal>
+</function>
+<function _name="detab">
+    <equal left="<param _name="_body"/>" right="">
+        <false>
+            <equal left="<stringChunk mode="allAfter" find="	"><param _name="_body"/></stringChunk>" right="">
+                <true>
+                    <equal left="<stringChunk mode="allBefore" find="	"><param _name="_body"/></stringChunk>" right="">
+                        <true>
+                            <param _name="_body" />
+                        </true>
+                        <false>
+                            <stringChunk mode="allBefore" find="	">
+                                <param _name="_body" />
+                            </stringChunk>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <detab>
+                                <stringChunk mode="allAfter" find="	">
+                                    <param _name="_body" />
+                                </stringChunk>
+                            </detab>
+                        </false>
+                    </equal>
+                </true>
+                <false>
+                    <stringChunk mode="allBefore" find="	">
+                        <param _name="_body" />
+                    </stringChunk>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <detab>
+                        <stringChunk mode="allAfter" find="	">
+                            <param _name="_body" />
+                        </stringChunk>
+                    </detab>
+                </false>
+            </equal>
+        </false>
+    </equal>
+</function>
+<function _name="tp">
+    <tt>
+        <crbr>
+            <delt>
+                <detab>
+                    <desp>
+                        <delamp>
+                            <param _name="_body" />
+                        </delamp>
+                    </desp>
+                </detab>
+            </delt>
+        </crbr>
+    </tt>
+</function>
+<function _name="tp-new">
+    <tt>
+        <nopretty>
+            <pre>
+                <delt>
+                    <delamp>
+                        <param _name="_body" />
+                    </delamp>
+                </delt>
+            </pre>
+        </nopretty>
+    </tt>
+</function>
+<function _name="last">
+    <equal left="<param _name="lines"/>" right="">
+        <true>
+            Bad call to LAST
+        </true>
+        <false>
+            <equal left="<param _name="lines"/>" right="0">
+                <false>
+                    <equal left="<stringChunk mode="allAfter" find="
+" reverse><param _name="_body"/></stringChunk>" right="">
+                        <false>
+                            <stringChunk mode="allAfter" find="
+" reverse>
+                                <param _name="_body" />
+                            </stringChunk>
+                            <br />
+                        </false>
+                    </equal>
+                    <last lines="<dec by="1"><param _name="lines"/></dec>">
+                        <stringChunk mode="allBefore" reverse find="
+">
+                            <param _name="_body" />
+                        </stringChunk>
+                    </last>
+                </false>
+                <true>
+                    <stringChunk mode="allAfter" find="
+" reverse>
+                        <param _name="_body" />
+                    </stringChunk>
+                    <br />
+                </true>
+            </equal>
+        </false>
+    </equal>
+</function>
+<function _name="barf">
+    <buildSubSubTable title="<param _name="_body"/>" />
+</function>
+<function _name="sendmsg">
+    <dbSelect>
+        messages.
+        <param _name="user" />
+    </dbSelect>
+    <dbChange _recordID="<dbCreate/>" _name="message">
+        <param _name="_body" />
+    </dbChange>
+</function>

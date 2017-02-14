@@ -1,0 +1,693 @@
+<function _name="dbError">
+    <setVar _name="dberrs"><getVar _name="dberrs"/><param _name="_body"/>
+</setVar>
+</function>
+<setVar _name="refreshTag"/>
+<function _name="hth">
+    <setVar _name="nodisp"/>
+    <setVar _name="vhost"><stringChunk mode="allBefore" find=".metascape"><param _name="_server-name"/></stringChunk></setVar>
+    <equal left="<getVar _name="vhost"/>" right="">
+        <false>
+            <equal left="<getVar _name="vhost"/>" right="www">
+                <false>
+                    location:http://www.metascape.mine.nu/xtwikki.xtp?node=
+                    <escape>
+                        <getVar _name="vhost" />
+                    </escape>
+                    
+
+                    <setVar _name="nodisp">true</setVar>
+                </false>
+            </equal>
+        </false>
+    </equal>
+    <include noparse>
+        inc/httphead.inc
+    </include>
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>
+    <getVar _name="refreshTag" />
+    <equal left="<param _name="title"/>" right="">
+        <false>
+            <title>
+            <param _name="title" />
+            </title>
+        </false>
+    </equal>
+    <sty />
+    </head>
+    <equal left="<getVar _name="nodisp"/>" right="true">
+        <false>
+            <equal left="<param _name="bgcolor"/>" right="">
+                <true>
+                    <equal left="<param _name="background"/>" right="">
+                        <true>
+                            <body bgcolor="
+                            <getVar _name="body-background" />
+                            "> 
+                            <msgstuff />
+                            <jsstuff />
+                            <param parse _name="_body" />
+                            <bottomstuff view="<param _name="view"/>" />
+                            </body> 
+                        </true>
+                        <false>
+                            <body background="
+                            <param _name="background" />
+                            "> 
+                            <msgstuff />
+                            <jsstuff />
+                            <param parse _name="_body" />
+                            <bottomstuff view="<param _name="view"/>" />
+                            </body> 
+                        </false>
+                    </equal>
+                </true>
+                <false>
+                    <body bgcolor="
+                    <param _name="bgcolor" />
+                    "> 
+                    <msgstuff />
+                    <jsstuff />
+                    <param parse _name="_body" />
+                    <bottomstuff view="<param _name="view"/>" />
+                    </body>
+                </false>
+            </equal>
+        </false>
+        <true>
+            <body></body>
+        </true>
+    </equal>
+    </html>
+</function>
+<function _name="doview">
+    <equal left="<param _name="view"/>" right="">
+        <false>
+            <form action="/view.xtp" method="get">
+                <input type="hidden" name="target" value="<param _name="view"/>" />
+                <input type="submit" value="View Source" />
+            </form>
+        </false>
+    </equal>
+</function>
+<function _name="sty">
+    <style type="text/css">
+        a { color:
+        <getVar _name="link" />
+        ; font-family:times,serif; font-size:13px; font-style:italic; text-decoration:none; background-color:transparent;}a:visited { color:
+        <getVar _name="link-visited" />
+        ; font-style:italic; background-color:transparent;}a:hover { text-decoration:underline; color:
+        <getVar _name="link-hover" />
+        ; background-color:
+        <getVar _name="link-hover-bg" />
+        ;}.tplink { font-family:times,serif; font-size:13px; font-style:italic; text-decoration:none;}body { color:
+        <getVar _name="text-fg" />
+        ; font-family:verdana,arial,sans-serif; font-size:11px; 
+        <equal left="<getvar _name="body-bg-image"/>" right="">
+            <false>
+                background-image:url("
+                <getVar _name="body-bg-image" />
+                "); 
+            </false>
+            <true>
+                background-image:none; 
+            </true>
+        </equal>
+        background-color:
+        <getVar _name="body-background" />
+        ;}.pbody { color:
+        <getVar _name="text-fg" />
+        ; font-family:verdana,arial,sans-serif; font-size:11px; background-color:transparent; 
+        }.pbody2 { color:
+        <getVar _name="text-fg" />
+        ; font-family:verdana,arial,sans-serif; font-size:11px; background-color:
+        <getVar _name="body-background" />
+        ;}table { font-family:verdana,arial,sans-serif; font-size:11px; color:
+        <getVar _name="text-fg" />
+        ; background-color:
+        <getVar _name="table-bg" />
+        ;}button { color:
+        <getVar _name="text-fg" />
+        ; background-color:
+        <getVar _name="table-bg" />
+        ;}input { color:
+        <getVar _name="text-fg" />
+        ; background-color:
+        <getVar _name="table-bg" />
+        ;}option { color:
+        <getVar _name="text-fg" />
+        ; background-color:
+        <getVar _name="table-bg" />
+        ;}select { color:
+        <getVar _name="text-fg" />
+        ; background-color:
+        <getVar _name="table-bg" />
+        ;}img { border:0;}textarea { color:
+        <getVar _name="text-fg" />
+        ; background-color:
+        <getVar _name="table-bg" />
+        ;}.dhr { color:
+        <getVar _name="text-fg" />
+        ; background-color:
+        <getVar _name="body-background" />
+        ; height:1px; width:100%;}.dvr { color:
+        <getVar _name="text-fg" />
+        ; background-color:
+        <getVar _name="body-background" />
+        ; width:1px;}.masp { color:
+        <getVar _name="menu-active-fg" />
+        ; background-color:
+        <getVar _name="table-bg" />
+        ;}.tborder { background-color:
+        <getVar _name="table-border" />
+        ; color:
+        <getVar _name="text-fg" />
+        ;}.thead { background-color:
+        <getVar _name="table-head-bg" />
+        ; color:
+        <getVar _name="table-head-fg" />
+        ;}.theadsmall { background-color:
+        <getVar _name="table-small-head-bg" />
+        ; color:
+        <getVar _name="table-small-head-fg" />
+        ;}.theadsmallsmall { background-color:
+        <getVar _name="table-small-small-head-bg" />
+        ; color:
+        <getVar _name="table-small-small-head-fg" />
+        ;}.tbody { background-color:
+        <getVar _name="table-bg" />
+        ; color:
+        <getVar _name="text-fg" />
+        ;}.mtbody { border-left-width:1px; border-right-width:1px; border-bottom-width:1px; border-style:solid; border-top-width:0; border-color:
+        <getVar _name="table-border" />
+        ; background-color:
+        <getVar _name="table-bg" />
+        ; color:
+        <getVar _name="text-fg" />
+        ;}.stbody { border-left-width:1px; border-right-width:1px; border-bottom-width:1px; border-style:solid; border-top-width:0; border-color:
+        <getVar _name="body-background" />
+        ; background-color:
+        <getVar _name="table-bg" />
+        ; color:
+        <getVar _name="text-fg" />
+        ;}
+    </style>
+</function>
+<function _name="getCookie">
+    <equal left="<stringChunk mode="allBefore" find=";"><stringChunk mode="allAfter" find="<param _name="_name"/>=" reverse><param _name="_cookies"/></stringChunk></stringChunk>" right="">
+        <false>
+            <descape>
+                <stringChunk mode="allBefore" find=";">
+                    <stringChunk reverse mode="allAfter" find="<param _name="_name"/>=">
+                        <param _name="_cookies" />
+                    </stringChunk>
+                </stringChunk>
+            </descape>
+        </false>
+        <true>
+            <equal left="<stringChunk mode="allAfter" find=";"><stringChunk reverse mode="allAfter" find="<param _name="_name"/>="><param _name="_cookies"/></stringChunk></stringChunk>" right="">
+                <true>
+                    <descape>
+                        <stringChunk mode="allAfter" reverse find="<param _name="_name"/>=">
+                            <param _name="_cookies" />
+                        </stringChunk>
+                    </descape>
+                </true>
+            </equal>
+        </true>
+    </equal>
+</function>
+<function _name="setCookie">
+    <nopretty>
+        Set-cookie:
+        <param parse _name="_name" />
+        =
+        <escape>
+            <param parse _name="_body" />
+        </escape>
+        ;
+        <equal left="<param parse _name="domain"/>" right="">
+            <false>
+                 domain=
+                <param parse _name="domain" />
+                ;
+            </false>
+        </equal>
+        <equal left="<param parse _name="expires"/>" right="">
+            <false>
+                 expires=
+                <param parse _name="expires" />
+                ;
+            </false>
+        </equal>
+        <equal left="<param parse _name="path"/>" right="">
+            <false>
+                 path=
+                <param parse _name="path" />
+                ;
+            </false>
+        </equal>
+        
+
+    </nopretty>
+</function>
+<function _name="refresh">
+    <setVar _name="refreshTag"><meta http-equiv="refresh" content="url=<param parse _name="_body"/>"></setVar>
+</function>
+<function _name="fillHoles">
+    <equal left="<getVar _name="body-background"/>" right="">
+        <true>
+            <setVar _name="body-background">#EEEEEE</setVar>
+        </true>
+    </equal>
+    <equal left="<getVar _name="table-bg"/>" right="">
+        <true>
+            <setVar _name="table-bg">#E0E0E0</setVar>
+        </true>
+    </equal>
+    <equal left="<getVar _name="table-border"/>" right="">
+        <true>
+            <setVar _name="table-border">#777777</setVar>
+        </true>
+    </equal>
+    <equal left="<getVar _name="table-head-bg"/>" right="">
+        <true>
+            <setVar _name="table-head-bg">#EEEEEE</setVar>
+        </true>
+    </equal>
+    <equal left="<getVar _name="table-head-fg"/>" right="">
+        <true>
+            <setVar _name="table-head-fg">#4444FF</setVar>
+        </true>
+    </equal>
+    <equal left="<getVar _name="table-small-head-bg"/>" right="">
+        <true>
+            <setVar _name="table-small-head-bg">#FFFFFF</setVar>
+        </true>
+    </equal>
+    <equal left="<getVar _name="table-small-head-fg"/>" right="">
+        <true>
+            <setVar _name="table-small-head-fg">#0044FF</setVar>
+        </true>
+    </equal>
+    <equal left="<getVar _name="text-fg"/>" right="">
+        <true>
+            <setVar _name="text-fg">#0000FF</setVar>
+        </true>
+    </equal>
+    <equal left="<getVar _name="link"/>" right="">
+        <true>
+            <setVar _name="link">#3333FF</setVar>
+        </true>
+    </equal>
+    <equal left="<getVar _name="link-visited"/>" right="">
+        <true>
+            <setVar _name="link-visited">#FF3333</setVar>
+        </true>
+    </equal>
+    <equal left="<getVar _name="link-hover"/>" right="">
+        <true>
+            <setVar _name="link-hover">#FF33FF</setVar>
+        </true>
+    </equal>
+    <equal left="<getVar _name="link-hover-bg"/>" right="">
+        <true>
+            <setVar _name="link-hover-bg">#EEEEEE</setVar>
+        </true>
+    </equal>
+    <equal left="<getVar _name="menu-active-fg"/>" right="">
+        <true>
+            <setVar _name="menu-active-fg">#000077</setVar>
+        </true>
+    </equal>
+    <equal left="<getVar _name="table-small-small-head-bg"/>" right="">
+        <true>
+            <setVar _name="table-small-small-head-bg">#EEEEEE</setVar>
+        </true>
+    </equal>
+    <equal left="<getVar _name="table-small-small-head-fg"/>" right="">
+        <true>
+            <setVar _name="table-small-small-head-fg">#4400FF</setVar>
+        </true>
+    </equal>
+</function>
+<function _name="initFromCookies">
+    <setVar _name="body-background"><getCookie _name="body-background"/></setVar>
+    <setVar _name="table-bg"><getCookie _name="table-bg"/></setVar>
+    <setVar _name="table-border"><getCookie _name="table-border"/></setVar>
+    <setVar _name="table-head-bg"><getCookie _name="table-head-bg"/></setVar>
+    <setVar _name="table-head-fg"><getCookie _name="table-head-fg"/></setVar>
+    <setVar _name="table-small-head-bg"><getCookie _name="table-small-head-bg"/></setVar>
+    <setVar _name="table-small-head-fg"><getCookie _name="table-small-head-fg"/></setVar>
+    <setVar _name="text-fg"><getCookie _name="text-fg"/></setVar>
+    <setVar _name="link"><getCookie _name="link"/></setVar>
+    <setVar _name="link-visited"><getCookie _name="link-visited"/></setVar>
+    <setVar _name="link-hover"><getCookie _name="link-hover"/></setVar>
+    <setVar _name="link-hover-bg"><getCookie _name="link-hover-bg"/></setVar>
+    <setVar _name="menu-active-fg"><getCookie _name="menu-active-fg"/></setVar>
+    <setVar _name="table-small-small-head-bg"><getCookie _name="table-small-small-head-bg"/></setVar>
+    <setVar _name="table-small-small-head-fg"><getCookie _name="table-small-small-head-fg"/></setVar>
+</function>
+<function _name="initFromDB">
+    <setVar _name="body-bg-image"><param _name="body-bg-image"/></setVar>
+    <setVar _name="body-background"><param _name="body-background"/></setVar>
+    <setVar _name="table-bg"><param _name="table-bg"/></setVar>
+    <setVar _name="table-border"><param _name="table-border"/></setVar>
+    <setVar _name="table-head-bg"><param _name="table-head-bg"/></setVar>
+    <setVar _name="table-head-fg"><param _name="table-head-fg"/></setVar>
+    <setVar _name="table-small-head-bg"><param _name="table-small-head-bg"/></setVar>
+    <setVar _name="table-small-head-fg"><param _name="table-small-head-fg"/></setVar>
+    <setVar _name="text-fg"><param _name="text-fg"/></setVar>
+    <setVar _name="link"><param _name="link"/></setVar>
+    <setVar _name="link-visited"><param _name="link-visited"/></setVar>
+    <setVar _name="link-hover"><param _name="link-hover"/></setVar>
+    <setVar _name="link-hover-bg"><param _name="link-hover-bg"/></setVar>
+    <setVar _name="menu-active-fg"><param _name="menu-active-fg"/></setVar>
+    <setVar _name="table-small-small-head-bg"><param _name="table-small-small-head-bg"/></setVar>
+    <setVar _name="table-small-small-head-fg"><param _name="table-small-small-head-fg"/></setVar>
+</function>
+<function _name="doFromDB">
+    <setVar _name="colors"><param _name="value"/></setVar>
+    <equal left="<getVar _name="body-background"/>" right="">
+        <true>
+            <setVar _name="body-background"><stringChunk mode="allBefore" find=";"><getVar _name="colors"/></stringChunk></setVar>
+        </true>
+    </equal>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <equal left="<getVar _name="table-bg"/>" right="">
+        <true>
+            <setVar _name="table-bg"><stringChunk mode="allBefore" find=";"><getVar _name="colors"/></stringChunk></setVar>
+        </true>
+    </equal>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <equal left="<getVar _name="table-border"/>" right="">
+        <true>
+            <setVar _name="table-border"><stringChunk mode="allBefore" find=";"><getVar _name="colors"/></stringChunk></setVar>
+        </true>
+    </equal>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <equal left="<getVar _name="table-head-bg"/>" right="">
+        <true>
+            <setVar _name="table-head-bg"><stringChunk mode="allBefore" find=";"><getVar _name="colors"/></stringChunk></setVar>
+        </true>
+    </equal>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <equal left="<getVar _name="table-head-fg"/>" right="">
+        <true>
+            <setVar _name="table-head-fg"><stringChunk mode="allBefore" find=";"><getVar _name="colors"/></stringChunk></setVar>
+        </true>
+    </equal>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <equal left="<getVar _name="table-small-head-bg"/>" right="">
+        <true>
+            <setVar _name="table-small-head-bg"><stringChunk mode="allBefore" find=";"><getVar _name="colors"/></stringChunk></setVar>
+        </true>
+    </equal>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <equal left="<getVar _name="table-small-head-fg"/>" right="">
+        <true>
+            <setVar _name="table-small-head-fg"><stringChunk mode="allBefore" find=";"><getVar _name="colors"/></stringChunk></setVar>
+        </true>
+    </equal>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <equal left="<getVar _name="text-fg"/>" right="">
+        <true>
+            <setVar _name="text-fg"><stringChunk mode="allBefore" find=";"><getVar _name="colors"/></stringChunk></setVar>
+        </true>
+    </equal>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <equal left="<getVar _name="link"/>" right="">
+        <true>
+            <setVar _name="link"><stringChunk mode="allBefore" find=";"><getVar _name="colors"/></stringChunk></setVar>
+        </true>
+    </equal>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <equal left="<getVar _name="link-visited"/>" right="">
+        <true>
+            <setVar _name="link-visited"><stringChunk mode="allBefore" find=";"><getVar _name="colors"/></stringChunk></setVar>
+        </true>
+    </equal>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <equal left="<getVar _name="link-hover"/>" right="">
+        <true>
+            <setVar _name="link-hover"><stringChunk mode="allBefore" find=";"><getVar _name="colors"/></stringChunk></setVar>
+        </true>
+    </equal>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <equal left="<getVar _name="link-hover-bg"/>" right="">
+        <true>
+            <setVar _name="link-hover-bg"><stringChunk mode="allBefore" find=";"><getVar _name="colors"/></stringChunk></setVar>
+        </true>
+    </equal>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <equal left="<getVar _name="menu-active-fg"/>" right="">
+        <true>
+            <setVar _name="menu-active-fg"><stringChunk mode="allBefore" find=";"><getVar _name="colors"/></stringChunk></setVar>
+        </true>
+    </equal>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <equal left="<getVar _name="table-small-small-head-bg"/>" right="">
+        <true>
+            <setVar _name="table-small-small-head-bg"><stringChunk mode="allBefore" find=";"><getVar _name="colors"/></stringChunk></setVar>
+        </true>
+    </equal>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <equal left="<getVar _name="table-small-small-head-fg"/>" right="">
+        <true>
+            <setVar _name="table-small-small-head-fg"><stringChunk mode="allBefore" find=";"><getVar _name="colors"/></stringChunk></setVar>
+        </true>
+    </equal>
+</function>
+<function _name="init">
+    <dbSelect>
+        users
+    </dbSelect>
+    <dbQuery callback="initFromDB">"user" IS "<getVar _name="_user"/>"</dbQuery>
+    <dbSelect>
+        schemes
+    </dbSelect>
+    <dbQuery callback="doFromDB">"name" IS "Default"</dbQuery>
+</function>
+<function _name="w3icon">
+    <a href="http://validator.w3.org/check/referer">
+        <img border="0" src="/images/valid-html401.gif" alt="Valid HTML 4.01!" height="31" width="88" />
+    </a>
+    <a href="http://jigsaw.w3.org/css-validator/">
+        <img border="0" width="88" height="31" src="/images/vcss.gif" alt="Valid CSS!" />
+    </a>
+</function>
+<function _name="xiicon">
+    <a href="http://www.xitami.com/">
+        <img border="0" width="88" height="31" src="/images/xitami/powered2.gif" alt="Powered by Xitami!" />
+    </a>
+</function>
+<function _name="fortune2">
+    <nopretty>
+        <pre>
+            <param _name="fortune" />
+        </pre>
+    </nopretty>
+</function>
+<function _name="fortune">
+    <dbSelect>
+        fortune
+    </dbSelect>
+    <dbQuery callback="fortune2">"_recordID" IS "<random><dbQueryCount/></random>"</dbQuery>
+</function>
+<function _name="getDBvalue">
+    <param _name="value" />
+</function>
+<function _name="getAdj">
+    <equal left="<param _name="_body"/>" right="0">
+        <true>
+            <dbQuery callback="getDBvalue">"_recordID" IS "<random><dbQueryCount/></random>"</dbQuery>
+        </true>
+        <false>
+            <setVar _name="temp"><dbQuery callback="getDBvalue">"_recordID" IS "<random><dbQueryCount/></random>"</dbQuery></setVar>
+            <getVar _name="temp" />
+             
+            <getAdj>
+                <dec by="1">
+                    <param _name="_body" />
+                </dec>
+            </getAdj>
+        </false>
+    </equal>
+</function>
+<function _name="genby">
+    <dbSelect>
+        groups
+    </dbSelect>
+    <setVar _name="group"><dbQuery callback="getDBvalue">"_recordID" IS "<random><dbQueryCount/></random>"</dbQuery></setVar>
+    <dbSelect>
+        adjectives
+    </dbSelect>
+    <setVar _name="adjective"><getAdj>0</getAdj></setVar>
+    <dbSelect>
+        nouns
+    </dbSelect>
+    <setVar _name="noun"><dbQuery callback="getDBvalue">"_recordID" IS "<random><dbQueryCount/></random>"</dbQuery></setVar>
+    This page generated 
+    <equal left="<getVar _name="_user"/>" right="">
+        <false>
+            for 
+            <getVar _name="_user" />
+             
+        </false>
+    </equal>
+    by a 
+    <getVar _name="group" />
+     of 
+    <getVar _name="adjective" />
+     
+    <getVar _name="noun" />
+    .
+</function>
+<function _name="sfIcon">
+    <A href="http://sourceforge.net">
+        <IMG src="http://sourceforge.net/sflogo.php?group_id=62676&amp;type=1" border="0" alt="SourceForge Logo" />
+    </A>
+</function>
+<function _name="bottomstuff">
+    <table style="color:<getVar _name="text-fg"/>;background-color:<getVar _name="table-border"/>">
+        <tr>
+            <td style="color:<getVar _name="text-fg"/>;background-color:<getVar _name="table-bg"/>">
+                <fortune />
+            </td>
+        </tr>
+    </table>
+    <div style="height:4px;">
+        <!---->
+    </div>
+    <div>
+        <doview view="<param _name="view"/>" />
+        <w3icon />
+        <sfIcon />
+        <xiicon />
+    </div>
+    <table style="color:<getVar _name="text-fg"/>;background-color:<getVar _name="table-border"/>">
+        <tr>
+            <td style="color:<getVar _name="text-fg"/>;background-color:<getVar _name="table-bg"/>">
+                <genby />
+            </td>
+        </tr>
+    </table>
+    <div style="height:4px;">
+        <!---->
+    </div>
+    <equal left="<getVar _name="_user"/>" right="">
+        <false>
+            <table style="color:<getVar _name="text-fg"/>;background-color:<getVar _name="table-border"/>">
+                <tr>
+                    <td style="color:<getVar _name="text-fg"/>;background-color:<getVar _name="table-bg"/>">
+                        You are logged in as 
+                        <getVar _name="_user" />
+                        . 
+                        <a href="/logout.xtp">
+                            Logout
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </false>
+    </equal>
+    <equal left="<getVar _name="dberrs"/>" right="">
+        <false>
+            <div style="height:4px;">
+                <!---->
+            </div>
+            <table style="color:<getVar _name="text-fg"/>;background-color:<getVar _name="table-border"/>">
+                <tr>
+                    <td style="color:<getVar _name="text-fg"/>;background-color:<getVar _name="table-bg"/>">
+                        Database Errors:
+                        <br />
+                        <pre>
+                            <getVar _name="dberrs" />
+                        </pre>
+                    </td>
+                </tr>
+            </table>
+        </false>
+    </equal>
+</function>
+<function _name="jsstuff">
+    <script type="text/javascript">
+        function dovanish() {if (document.getElementById) {document.getElementById("thisdiv").style.visibility='hidden';document.getElementById("thistable").style.visibility='hidden';} else if (document.all) {document.all["thistable"].style.visibility='hidden';document.all["thisdiv"].style.visibility='hidden';}}function invert(element) {if (document.getElementById) {if (document.getElementById(element).style.display=='block') {document.getElementById(element).style.display='none';} else {document.getElementById(element).style.display='block';}} else if (document.all) {if (document.all[element].style.display=='block') {document.all[element].style.display='none';} else {document.all[element].style.display='block';}}}
+    </script>
+</function>
+<function _name="hthmin">
+    <include noparse>
+        inc/httphead.inc
+    </include>
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>
+    <title>
+        <param _name="title" />
+        
+
+    </title>
+    <getVar _name="refreshTag" />
+    </head><body>
+    <param _name="_body" />
+    </body></html>
+</function>
+<function _name="hthfrm">
+    <include noparse>
+        inc/httphead.inc
+    </include>
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head>
+    <title>
+        <param _name="title" />
+        
+
+    </title>
+    <getVar _name="refreshTag" />
+    </head>
+    <param _name="_body" />
+    </html>
+</function>
+<function _name="msgstuff">
+    <equal left="<getVar _name="_user"/>" right="">
+        <false>
+            <dbSelect>
+                messages.
+                <getVar _name="_user" />
+            </dbSelect>
+            <setVar _name="msgs"/>
+            <dbQuery callback="getmsgs"/>
+            <equal left="<getVar _name="msgs"/>" right="">
+                <false>
+                    <div id="thisdiv" style="position:absolute;top:0px;left:0px;width:100%;height:100%;background-repeat:repeat;background-image:url('/images/dither.gif');">
+                        <!---->
+                    </div>
+                    <table id="thistable" style="position:absolute;top:10px;left:10px;width:150px;color:<getVar _name="text-fg"/>;background-color:<getVar _name="table-border"/>">
+                        <tr>
+                            <td colspan="2" style="color:<getVar _name="text-fg"/>;background-color:<getVar _name="table-bg"/>">
+                                <ul>
+                                    <getVar _name="msgs" />
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="100%" style="color:<getVar _name="text-fg"/>;background-color:<getVar _name="table-bg"/>">
+                                <a href="/sendmessage.xtp">
+                                    Messages
+                                </a>
+                            </td>
+                            <td align="right" width="0" nowrap style="color:<getVar _name="text-fg"/>;background-color:<getVar _name="table-bg"/>">
+                                <a href="#" onClick="dovanish();return false;">
+                                    Close
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </false>
+            </equal>
+        </false>
+    </equal>
+</function>
+<function _name="getmsgs">
+    <setVar _name="msgs"><getVar _name="msgs"/><li><param _name="message"/></li></setVar>
+    <dbDelete>
+        <param _name="_recordID" />
+    </dbDelete>
+</function>

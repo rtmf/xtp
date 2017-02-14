@@ -1,0 +1,781 @@
+$$wed/june-19/2002##Fixed &lt;param>. It now defaults to noparse (use param parse to force but whatever you do, don't param parse an external param).
+<br />
+Added &lt;tp> to stdfunc.xtp
+<br />
+Added &lt;desp> to stdfunc.xtp
+<br />
+Added 
+<a href="pics.xtp">
+    /pics.xtp
+</a>
+<br />
+$$thu/june-20/2002##Trying to optimize for speed...recompiled with full speed optimizations turned on, no great luck there yet.
+<br />
+Added in the 
+ (cr/crlf) and 	 (tab) escapes.
+<br />
+Added &lt;detab> to stdfunc.xtp
+<br />
+$$thu/june-20/2002##Added &lt;dec> and &lt;inc>. Beginnings of math functions are there.
+<br />
+Changed up the log view, it now reverses the order of the lines in the log, and only puts out as many as you want. (default:20)
+<br />
+Added the "reverse" switch to &lt;stringChunk> causing it to search from the other end of the string.
+<br />
+$$mon/july-01/2002##Fixed &lt;stringChunk mode="allAfter">. It now actually properly handles instead of assuming length of 1.
+<br />
+Created news.xtp. -- see view includes.
+<br />
+$$mon/july-01/2002##Changed coloring and styles and fonts around on the page. I think I like it so far.$$sat/july-13/2002##Added this news item to point out that (for IE users), the CHAT page actually works. Some have reported slowness or other problems, if you have comments, drop me a line at 
+<a href="mailto:trinn_99@yahoo.com">
+    trinn_99@yahoo.com
+</a>
+.
+<br />
+$$mon/july-15/2002##Added Sub-Menu support (see the menus), and put the XTP source up for anyone to view. (it should compile on everything from MSVC to BC to GCC).$$tue/july-16/2002##Some personal news. My girlfriend's cat was just put to sleep. Kyrie, ~16 years old, was at the end of her life, and suffering from an untreatable cancer. We will all miss her.$$tue/july-23/2002##Added support for setting & retrieving cookies. Added support for many CGI vars. Fixed up variable forwarding, global-scope parameters are now carried down into functions, I'm currently planning to add a system to handle XML databases, it should be interesting.
+<br />
+$$wed/july-24/2002##Added some code for getVar and setVar, and then switched all of the colors in the standard libs over to vars. Colors are customizable through the "Settings" link on the menu.
+<br />
+$$sun/july-28/2002##Added the &lt;log> tag. It writes to files called xtp./file/.log and thus should on any sane filesystem avoid any exploits (though they would only be usable if the coder of the .xtp was either malicious or very poor at writing an xtp. Anyway, please send 
+<a href="/feedback.xtp">
+    FEEDBACK
+</a>
+. (It's on the menu too.)
+<br />
+$$mon/july-29/2002##Added user-defined color presets, they store via cookies but submit to a local log-file.$$mon/aug-05/2002##Added code to do collapsable menus.$$This site best viewed in IE4+ and NS6+/Mozilla##$$sun/aug-11/2002##Fixed my CSS so Netscape 4 no longer shows #00e000 (that sickly green) instead of the proper background color, and fixed the strange image placement thing.$$PLEASE, don't use NS4.xx to view my site. It really mangles everything.##The site is readable, but really mangled, with the menu suffering the worst, the borders also invisible. Mozilla1.1b is quite stable and fast, and good at rendering my site (even though it had table width bugs I had to work around). Anyway, please don't use NS4.xx. If you do I can't be held responsible for the ugliness.
+<br />
+$$sun/aug-18/2002##Ok, I have decided. Someone left me some odd 
+<a href="/feedback.xtp">
+    feedback
+</a>
+from the IP address 24.48.133.30 - if anyone manages to figure out who this is (the address is one of the DHCP pool for the pleasent hills Adelphia net, judging by the reverse lookup of pa-pleasenthills1d-286.pit.adelphia.net), I will reward them with a permanent place for their name on this site, and possibly more, details to be determined later. Please leave theories as 
+<a href="/feedback.xtp">
+    feedback
+</a>
+. BTW, they used MSIE 6.0 on Windows 98, and came through on 16/aug.
+<br />
+$$wed/aug-21/2002##Cricket now offers SMS. I haven't gotten send capabilities yet but I can recieve. If you like my site, please e-mail me at 
+<a href="mailto:trinn@metascape.mine.nu">
+    trinn@metascape.mine.nu
+</a>
+to SMS me.
+<br />
+$$thu/aug-22/2002##If you see ugly, please go pick a color scheme on the 
+<a href="/settings.xtp">
+    settings
+</a>
+page. I've altered the system a little, and there is a third table level with its own colors. All of the schemes have been updated to the new color count. Feedback at 
+<a href="/feedback.xtp">
+    the feedback page
+</a>
+please.
+<br />
+$$thu/aug-22/2002##Yes, that is a private section. No, there's nothing there yet. Suggestions to 
+<a href="/feedback.xtp">
+    feedback
+</a>
+.
+<br />
+$$DON'T USE NN4.xx##Ok, it no longer hangs but it still doesn't work with my site very well. The Color Picker I just added to 
+<a href="/settings.xtp">
+    the settings page
+</a>
+doesn't even show up (mostly). Please use IE4+ or NS6+/Moz (or Opera in a pinch but it doesn't handle my color picker or menus properly)
+<br />
+$$fri/aug-23/2002##Added Blood 2 Color Scheme...I think I like it better. Anyway, please please please submit color schemes. I get all of the color schemes you add as user presets, if I like any of them / think they are good enough, They don't have to impress me greatly, just look readable. I will add them (I added Humble, didn't I?)
+<br />
+$$fri/aug-23/2002##Just a personal note - my girlfriend, Laeana, is going to be staying with me for the weekend ^_^. She's not here yet, I'm not expecting her for another hour or two, but I am very happy that I will very soon be seeing my SNUGGLY BEAR!
+<br />
+A rose for my snuggly bear: 
+<span style="color:#FF0000;background-color:#000000">
+    @
+</span>
+<span style="color:#00FF00;background-color:#000000">
+    };-,-'---,-,--'--
+</span>
+<br />
+$$sun/aug-25/2002##Working on the spec for XTP databases. Not sure how the actual database will be stored on disk but fairly sure it will just load in & be rewritten in full each time (keep your DBs small), either that or records will be individual files (if I decide to implement it that way), in a given folder. Anyway, check out what I have so far. I even have a query language. 
+<a href="/dbspec.xtp">
+    Database Spec.
+</a>
+And as always, 
+<a href="/feedback.xtp">
+    feedback
+</a>
+is appreciated.
+<br />
+$$mon/aug-26/2002##XTP Databases now work. Check out the spec on 
+<a href="/dbspec.xtp">
+    Database News
+</a>
+. It is implemented. Any ideas what to do with it to try it out in a more full manner than just my simple testing? 
+<a href="/feedback.xtp">
+    feedback.
+</a>
+<br />
+$$mon/aug-26/2002##Look down at the bottom of the page for some examples of XTP databases at work. I may just add a way to add & vote on generated-by items (groups, adjectives, and nouns). For now, 
+<a href="/feedback.xtp">
+    feedback
+</a>
+them and anything else you have to say.
+<br />
+$$wed/aug-28/2002##Added another color scheme, this one inspired by everyone's (least) favorite discussion site, generally full of pundits and trolls, of which the worse is often hard to judge, the (in)famous 
+<a href="http://slashdot.org/">
+    slashdot
+</a>
+.
+<br />
+$$wed / sept-4 / 2002##Lots of changes that weren't noted. The story program is now editable, password/username protected (feedback or e-mail for account), databases are now used for a lot, specifically that story program and menus. Menus are cached based on current item. If a page took a while to start loading, the cache probably had to be updated, it won't again until someone changes the menu (probably through the story program).
+<br />
+$$Opera is not very standards compliant##Long story short, Opera 6's rendering engine also mangles my site...hopefully opera 7 will be better.$$tue / sept-17 / 2002##We are now a project on sourceforge! 
+<a href="http://www.sourceforge.net/projects/xtp/">
+    Click here!
+</a>
+$$wed / sept-25 / 2002##Just got the server back up after a while of being down, we moved. The new location should allow better uptime. Anyway, hi everyone from sf.net (if there are any)$$sun / sept-29 / 2002##Set up some more color schemes (regal light and dark, for various monitor brightnesses, use dark for bright monitors, light for average monitors), and added the "Old News" mode to news.xtp. Tomorrow is my sister's birthday, if anyone is interested.
+<br />
+$$sun / sept-29 / 2002##OH yeah...check out 
+<a href="/xtwikki/">
+    XTWikki
+</a>
+. You can add/edit nodes. Delete & lock aren't implemented yet. You can also now create your own username. Password change isn't implemented, just delete yourself & re-add.$$mon / oct-28 / 2002##Changed a lot of things. Check out the wikki system, it's changed, and now colors are done per-user instead of per-browser. Just go to settings & re-set your color scheme.$$sat / nov-02 / 2002##Near-complete overhaul of layout, this should be much better. Much less boxy now. Please feel free to node your opinions at the xtwikki or to leave them in the feedback, though that will be removed soon.$$tue / nov-12 / 2002##Added background images, preview is slightly clunky, as the normal preview functions reset to the current image. The only image I have in right now is a dark purple one inspired by WW's Mage:the Ascension, and looks good with color scheme Regal.$$tue / nov-12 / 2002##Okay, background image preview does not work on NS, however I will promise you, background images show up fine. I can't track the bug down yet, it appears as no-bug as far as the JS console is concerned.$$tue / nov-12 / 2002##We now have textads. Please, run an ad, or click on the ads that are here. No paying ads are up yet.$$fri / nov-29 / 2002##Okay, did some code writing...nothing big. That and found at least one interesting piece of information. There's at least one reason, according to some, that men talk about a single final end event. It's all about the orgasm. Men generally have one and that's it. Women have a very different feeling on the subject. Now this is not to say that either gender must come to these conclusions, just that they are a "masculine" and "feminine" way of looking at things, if you pardon my use of those symbols. Women would, given this theory, generally see more of a moving forward, cyclic system. Something that while not static, does appear to repeat, with no definitive end, just further translations forward. I tend to stick with the latter approach myself, as the universe seems to be that way. There never seems to be a final end to anything, just a new set of situations, a new set of concepts to deal with. Reality is not static. It does not fit the neat begin-middle-end package that some would like it to.Neither though does it have the static cycles that some eastern religions favor. This would be a 'pointless' existance. This is not the way of Entara. We must be moving ever higher. There will always be chances to move forward. Some events may seem like 'end events' though, and I feel this is where many would get confused. Any predictive system will have its limits, and at those limits many will simply presume an 'end event'. Take 2012 (the Mayan end date, basically) for example. Chances are, based on the various references to it, it will be not the 'end event' many think of but another transformational event, a 'moving forward' if we proceed properly, or a 'moving backward'. Personally, this particular event is where I would put the rending of the Veil. This of course is dangerous, and has the possibility of being extremely productive, or extremely destructive. Entara would be begun to be reborn on that date, should the circle be complete. The war for the future would take on a hottercharacter again, not the cold nearly frozen state it is currently in. The world is not subjective in that it is merely the collection of everyone's beliefs, however it is subjective in that the objective reality can be bent by a person's will. The veil exists to restrict this. For a primer that would help you with some of the concepts here, see White Wolf's Mage:the Ascension. Some of the concepts are off, for instance this world does have a true objective reality, and there is no 'technocracy', if anything it is a 'theocracy' that often holds us back. 'Awakening' though is still possible, but not just to a select few. Anyone who is willing to open their eyes can be shown the world Beyond.
+<br />
+<br />
+<pre>
+    There are many ways of referring to the prime dualities of the world.Order/Chaos, Spirit/Will, Shadow/LightAutumn/Spring, Winter/Summer, Night/DayStatic/Dynamic, Entropic/Extropic, Not mentioned in this systemOr by a slightly (?) slipped mapping, we getWater/Fire, Earth/Air, -Core/+Core (Unnamed in this version of the system)The (near) lack of mappings in the second two for the Shadow/Light system shows it and thefirst two systems to be more of an outgrowth of the second two.As follows:Chaos Air Light S p iFire W i l l Water r i tShadow Earth OrderSpring Extropic Day W i nDynamic S u m m e r Static t e rNight Entropic AutumnThough this second mapping doesn't work as well, Winter & Summer not really matching their positions.Let us try swapping one thing aroundSpring Dynamic DayExtropic EntropicNight Static AutumnNo, still doesn't seem to workPerhaps a slipped mapping?There are other pairings involved in the Air/Fire/Earth/Water setCreation/DestructionForce/FinessePassion/ForethoughtInsight/ManipulationLet us characterize these in terms of dynamism and entropy. Dynamism EntropyCreation + -Destruction + +Force + ?Finesse + ?Passion + ?Forethought - ?Insight + -Manipulation + ?Well this gets us nowherelet's do "seasonal" Night/Day Autumn/Spring Summer/WinterCreation D S SDestruction N S WForce ? S ?Finesse ? S ?Passion ? S SForethought ? A ?Insight D S SManipulation N S ?Now that isn't what we would expect.What do we expect?Nothing that makes any sense.Let's try spheresdamnit, none of this is workingOh well. This was really pointless.
+</pre>
+$$thu / dec-26 / 2002##Now how does it go again? Guess I have to ask arky.
+<br />
+Well he had an idea, basically aligning air, fire, water, earth to the points of Freedom/Wonder/Enforcement/Commonality. I just can't remember which is which.
+<br />
+I think it was:
+<br />
+AIR:Wonder
+<br />
+FIRE:Enforcement
+<br />
+EARTH:Commonality
+<br />
+WATER:Freedom
+<br />
+<br />
+That is prob. right. Anyhow, it spawned the idea for generating the species of the new world based on it.
+<br />
+Species:
+<br />
+<ul>
+    <li>
+        AA:Fae
+    </li>
+    <li>
+        AF:Pixie
+    </li>
+    <li>
+        AE:Elven
+    </li>
+    <li>
+        AW:Angelic? Birdlike.
+    </li>
+    <li>
+        FA:Imp
+    </li>
+    <li>
+        FF:
+    </li>
+    <li>
+        FE:Saurian, Feudal, Viashino
+    </li>
+    <li>
+        FW:Leslish Manipulative control, demonic/vampiric, "turn" their "children",-maybe- all female
+    </li>
+    <li>
+        EA:
+    </li>
+    <li>
+        EF:Dwarven style.
+    </li>
+    <li>
+        EE:Rock-bodied/appeared creatures, telepathic.
+    </li>
+    <li>
+        EW:Human
+    </li>
+    <li>
+        WA:
+    </li>
+    <li>
+        WF:Voron
+    </li>
+    <li>
+        WE:Planty, Enty?
+    </li>
+    <li>
+        WW:
+    </li>
+</ul>
+I know I had more.
+<br />
+<br />
+BTW, this system is shaping up to be 4-based, specifically 4x4. Not sure why or how, but it is.$$tue / feb-04 / 2003##Well I thought I should throw in a mention for my wrongfully arrested friend.
+<br />
+Other than that, nothing major is happening. Watch this space for a more detailed writeup of what happened to him.
+<br />
+OH yeah:
+<br />
+<br />
+<table border="1">
+    <thead>
+        <tr>
+            <td>
+                Combination
+            </td>
+            <td>
+                Element
+            </td>
+            <td>
+                Force
+            </td>
+        </tr>
+    </thead>
+    <tr>
+        <td>
+            Air+Fire
+        </td>
+        <td>
+            Lightning
+        </td>
+        <td>
+            Chaos
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Water+Earth
+        </td>
+        <td>
+            Ice
+        </td>
+        <td>
+            Order
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Fire+Earth
+        </td>
+        <td>
+            Metal
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Air+Water
+        </td>
+        <td>
+            Mist
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Air+Earth
+        </td>
+        <td>
+            Light
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Fire+Water
+        </td>
+        <td>
+            Shadow
+        </td>
+    </tr>
+</table>
+$$thu / feb-20 / 2003##
+<table border="1">
+    <tr>
+        <td width="80">
+            &nbsp;
+        </td>
+        <td width="80">
+            Air
+        </td>
+        <td width="80">
+            Fire
+        </td>
+        <td width="80">
+            Earth
+        </td>
+        <td width="80">
+            Water
+        </td>
+        <td width="80">
+            <S>
+                Air
+            </S>
+        </td>
+        <td width="80">
+            <S>
+                Fire
+            </S>
+        </td>
+        <td width="80">
+            <S>
+                Earth
+            </S>
+        </td>
+        <td width="80">
+            <S>
+                Water
+            </S>
+        </td>
+    </tr>
+    <tr>
+        <td width="80">
+            Air
+        </td>
+        <td bgcolor="#FFFFFF" width="80">
+            <font color="#000000">
+                Air
+            </font>
+        </td>
+        <td bgcolor="#FF7777" width="80">
+            <font color="#000000">
+                Lightning
+            </font>
+        </td>
+        <td bgcolor="#77FF77" width="80">
+            <font color="#000000">
+                Light
+            </font>
+        </td>
+        <td bgcolor="#7777FF" width="80">
+            <font color="#000000">
+                Mist
+            </font>
+        </td>
+        <td bgcolor="#777777" width="80">
+            <font color="#FFFFFF">
+                &nbsp;
+            </font>
+        </td>
+        <td bgcolor="#77FFFF" width="80">
+            <font color="#000000">
+                Finesse
+            </font>
+        </td>
+        <td bgcolor="#FF77FF" width="80">
+            <font color="#000000">
+                Chaos
+            </font>
+        </td>
+        <td bgcolor="#FFFF77" width="80">
+            <font color="#000000">
+                Instinct
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td width="80">
+            Fire
+        </td>
+        <td bgcolor="#FF7777" width="80">
+            <font color="#000000">
+                Lightning
+            </font>
+        </td>
+        <td bgcolor="#FF0000" width="80">
+            <font color="#FFFFFF">
+                Fire
+            </font>
+        </td>
+        <td bgcolor="#777700" width="80">
+            <font color="#FFFFFF">
+                Metal
+            </font>
+        </td>
+        <td bgcolor="#770077" width="80">
+            <font color="#FFFFFF">
+                Shadow
+            </font>
+        </td>
+        <td bgcolor="#770000" width="80">
+            <font color="#FFFFFF">
+                Force
+            </font>
+        </td>
+        <td bgcolor="#777777" width="80">
+            <font color="#FFFFFF">
+                &nbsp;
+            </font>
+        </td>
+        <td bgcolor="#FF0077" width="80">
+            <font color="#000000">
+                Passion
+            </font>
+        </td>
+        <td bgcolor="#FF7700" width="80">
+            <font color="#000000">
+                Destruction
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td width="80">
+            Earth
+        </td>
+        <td bgcolor="#77FF77" width="80">
+            <font color="#000000">
+                Light
+            </font>
+        </td>
+        <td bgcolor="#777700" width="80">
+            <font color="#FFFFFF">
+                Metal
+            </font>
+        </td>
+        <td bgcolor="#00FF00" width="80">
+            <font color="#000000">
+                Earth
+            </font>
+        </td>
+        <td bgcolor="#007777" width="80">
+            <font color="#FFFFFF">
+                Ice
+            </font>
+        </td>
+        <td bgcolor="#007700" width="80">
+            <font color="#FFFFFF">
+                Order
+            </font>
+        </td>
+        <td bgcolor="#00FF77" width="80">
+            <font color="#000000">
+                Forethought
+            </font>
+        </td>
+        <td bgcolor="#777777" width="80">
+            <font color="#FFFFFF">
+                &nbsp;
+            </font>
+        </td>
+        <td bgcolor="#77FF00" width="80">
+            <font color="#000000">
+                Clarity
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td width="80">
+            Water
+        </td>
+        <td bgcolor="#7777FF" width="80">
+            <font color="#000000">
+                Mist
+            </font>
+        </td>
+        <td bgcolor="#770077" width="80">
+            <font color="#FFFFFF">
+                Shadow
+            </font>
+        </td>
+        <td bgcolor="#007777" width="80">
+            <font color="#FFFFFF">
+                Ice
+            </font>
+        </td>
+        <td bgcolor="#0000FF" width="80">
+            <font color="#FFFFFF">
+                Water
+            </font>
+        </td>
+        <td bgcolor="#000077" width="80">
+            <font color="#FFFFFF">
+                Manipulation
+            </font>
+        </td>
+        <td bgcolor="#0077FF" width="80">
+            <font color="#FFFFFF">
+                Creation
+            </font>
+        </td>
+        <td bgcolor="#7700FF" width="80">
+            <font color="#FFFFFF">
+                Illusion
+            </font>
+        </td>
+        <td bgcolor="#777777" width="80">
+            <font color="#FFFFFF">
+                &nbsp;
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td width="80">
+            <S>
+                Air
+            </S>
+        </td>
+        <td bgcolor="#777777" width="80">
+            <font color="#FFFFFF">
+                &nbsp;
+            </font>
+        </td>
+        <td bgcolor="#770000" width="80">
+            <font color="#FFFFFF">
+                Force
+            </font>
+        </td>
+        <td bgcolor="#007700" width="80">
+            <font color="#FFFFFF">
+                Order
+            </font>
+        </td>
+        <td bgcolor="#000077" width="80">
+            <font color="#FFFFFF">
+                Manipulation
+            </font>
+        </td>
+        <td bgcolor="#000000" width="80">
+            <font color="#FFFFFF">
+                NotAir
+            </font>
+        </td>
+        <td bgcolor="#007777" width="80">
+            <font color="#FFFFFF">
+                Ice
+            </font>
+        </td>
+        <td bgcolor="#770077" width="80">
+            <font color="#FFFFFF">
+                Shadow
+            </font>
+        </td>
+        <td bgcolor="#777700" width="80">
+            <font color="#FFFFFF">
+                Metal
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td width="80">
+            <S>
+                Fire
+            </S>
+        </td>
+        <td bgcolor="#77FFFF" width="80">
+            <font color="#000000">
+                Finesse
+            </font>
+        </td>
+        <td bgcolor="#777777" width="80">
+            <font color="#FFFFFF">
+                &nbsp;
+            </font>
+        </td>
+        <td bgcolor="#00FF77" width="80">
+            <font color="#000000">
+                Forethought
+            </font>
+        </td>
+        <td bgcolor="#0077FF" width="80">
+            <font color="#FFFFFF">
+                Creation
+            </font>
+        </td>
+        <td bgcolor="#007777" width="80">
+            <font color="#FFFFFF">
+                Ice
+            </font>
+        </td>
+        <td bgcolor="#00FFFF" width="80">
+            <font color="#000000">
+                NotFire
+            </font>
+        </td>
+        <td bgcolor="#7777FF" width="80">
+            <font color="#000000">
+                Mist
+            </font>
+        </td>
+        <td bgcolor="#77FF77" width="80">
+            <font color="#000000">
+                Light
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td width="80">
+            <S>
+                Earth
+            </S>
+        </td>
+        <td bgcolor="#FF77FF" width="80">
+            <font color="#000000">
+                Chaos
+            </font>
+        </td>
+        <td bgcolor="#FF0077" width="80">
+            <font color="#000000">
+                Passion
+            </font>
+        </td>
+        <td bgcolor="#777777" width="80">
+            <font color="#FFFFFF">
+                &nbsp;
+            </font>
+        </td>
+        <td bgcolor="#7700FF" width="80">
+            <font color="#FFFFFF">
+                Illusion
+            </font>
+        </td>
+        <td bgcolor="#770077" width="80">
+            <font color="#FFFFFF">
+                Shadow
+            </font>
+        </td>
+        <td bgcolor="#7777FF" width="80">
+            <font color="#000000">
+                Mist
+            </font>
+        </td>
+        <td bgcolor="#FF00FF" width="80">
+            <font color="#000000">
+                NotEarth
+            </font>
+        </td>
+        <td bgcolor="#FF7777" width="80">
+            <font color="#000000">
+                Lightning
+            </font>
+        </td>
+    </tr>
+    <tr>
+        <td width="80">
+            <S>
+                Water
+            </S>
+        </td>
+        <td bgcolor="#FFFF77" width="80">
+            <font color="#000000">
+                Instinct
+            </font>
+        </td>
+        <td bgcolor="#FF7700" width="80">
+            <font color="#000000">
+                Destruction
+            </font>
+        </td>
+        <td bgcolor="#77FF00" width="80">
+            <font color="#000000">
+                Clarity
+            </font>
+        </td>
+        <td bgcolor="#777777" width="80">
+            <font color="#FFFFFF">
+                &nbsp;
+            </font>
+        </td>
+        <td bgcolor="#777700" width="80">
+            <font color="#FFFFFF">
+                Metal
+            </font>
+        </td>
+        <td bgcolor="#77FF77" width="80">
+            <font color="#000000">
+                Light
+            </font>
+        </td>
+        <td bgcolor="#FF7777" width="80">
+            <font color="#000000">
+                Lightning
+            </font>
+        </td>
+        <td bgcolor="#FFFF00" width="80">
+            <font color="#000000">
+                NotWater
+            </font>
+        </td>
+    </tr>
+</table>
+$$tue / March 11 / 2003##When talking about elements, as a convention, I will use the following symbols:
+<br />
+A - air, F - fire, E - earth, W - water, a - notAir, f - notFire, e - notEarth, w - notWater
+<br />
+These symbols have values, expressed as 3d vectors (r,g,b), with the center (0,0,0) being the rgb triple (.5,.5,.5).
+<br />
+A=(1,1,1), F=(1,-1,-1), E=(-1,1,-1), W=(-1,-1,1), a=(-1,-1,-1), f=(-1,1,1), e=(1,-1,1), w=(1,1,-1).
+<br />
+There are two valid operators on a (set of) elements. The first is the summation and scaling operator, which is invisible & implied in all standard elemental notation, and has the effect of summing the inputs then linearly scaling them so that the absolute value of the largest value of the triple is equal to 1. This results in all the possible element values inscribing a cube with edges of length 2, centered around the origin.
+<br />
+The other operator valid for elements is the inverting operator, which simply reverses the signs on the components of the vector. Thus, a=-(A).
+<br />
+The interest of the system comes from constructs such as: FWE=a which is true by the summation and scaling principle/operator.
+<br />
+The chart below shows the names for the 26 valid integer positions on the cube, and leaves (0,0,0) unnamed, as it is the all/no element void at the center of the cube. Space between (0,0,0) and the walls of the cube is not assumed to be addressable, though this may change in a future revision. This is an attempt at spectromancy/chromomancy, among other things, a correlation of color and magic.$$sat / March 22 / 2003##Well I've been taking some quizzes, and seeing as how this now seems to be my livejournal:
+<br />
+<img src="http://images.quizilla.com/S/sarajayechan/1035695715_couplescxh.png" border="0" alt="ChibiUsa&Hotaru" />
+<br>
+    ChibiUsa&Hotaru
+    <br />
+    <br />
+    <a href="http://quizilla.com/users/sarajayechan/quizzes/Which%20yuri%20couple%20are%20you%3F/">
+        <font size="-1">
+            Which yuri couple are you?
+        </font>
+    </a>
+    <BR>
+        <font size="-3">
+            brought to you by 
+            <a href="http://quizilla.com">
+                Quizilla
+            </a>
+        </font>
+        <br />
+        That's who me & Sash wound up as on that quiz. Maybe more to come.
+        <br />
+        <img src="http://images.quizilla.com/J/jarokai/1034897651_sdryadcopy.jpg" border="0" alt="dryad" />
+        <br />
+        You are a Dryad
+        <br />
+        <br />
+        <a href="http://quizilla.com/users/jarokai/quizzes/What%20Greek%20Nymph%20Are%20You%3F/">
+            <font size="-1">
+                What Greek Nymph Are You?
+            </font>
+        </a>
+        <BR>
+            <font size="-3">
+                brought to you by 
+                <a href="http://quizilla.com">
+                    Quizilla
+                </a>
+            </font>
+            <br />
+            And...
+            <br />
+            <img src="http://images.quizilla.com/B/blackcat000/1044147417_red_result.jpg" border="0" alt="You see the world in Red" />
+            <br />
+            Red:Aren't you the romantic? Life is poetic. If you
+            <br>
+                don't already, write poetry, you're good at it.
+                <br />
+                <br />
+                <a href="http://quizilla.com/users/blackcat000/quizzes/What%20color%20do%20you%20see%20the%20world%20in%3F/">
+                    <font size="-1">
+                        What color do you see the world in?
+                    </font>
+                </a>
+                <BR>
+                    <font size="-3">
+                        brought to you by 
+                        <a href="http://quizilla.com">
+                            Quizilla
+                        </a>
+                    </font>
+                </BR>
+            </br>
+        </BR>
+    </BR>
+</br>

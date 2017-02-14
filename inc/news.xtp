@@ -1,0 +1,69 @@
+<function _name="news">
+    <equal left="" right="<param _name="_body"/>">
+        <false>
+            <news2>
+                <stringChunk mode="allAfter" reverse find="$$">
+                    <param parse _name="_body" />
+                </stringChunk>
+            </news2>
+            <news>
+                <stringChunk mode="allBefore" reverse find="$$">
+                    <param parse _name="_body" />
+                </stringChunk>
+            </news>
+        </false>
+    </equal>
+</function>
+<function _name="news2">
+    <buildSubSubTable title="<stringChunk find="##" mode="allBefore"><param parse _name="_body"/></stringChunk>">
+        <column>
+            <stringChunk find="##" mode="allAfter">
+                <param parse _name="_body" />
+            </stringChunk>
+        </column>
+    </buildSubSubTable>
+</function>
+<function _name="cnews">
+    <setVar _name="newsleft"/>
+    <buildSubTable title="<param _name="title"/>">
+        <column>
+            <snews lines="4">
+                <param parse _name="_body" />
+            </snews>
+        </column>
+    </buildSubTable>
+    <equal left="<getVar _name="newsleft"/>" right="">
+        <false>
+            <buildSubTable collapse="yes" title="Old news...">
+                <column>
+                    <news>
+                        <getVar _name="newsleft" />
+                    </news>
+                </column>
+            </buildSubTable>
+        </false>
+    </equal>
+</function>
+<function _name="snews">
+    <equal left="" right="<param _name="_body"/>">
+        <false>
+            <news2>
+                <stringChunk mode="allAfter" reverse find="$$">
+                    <param parse _name="_body" />
+                </stringChunk>
+            </news2>
+            <equal left="<param _name="lines"/>" right="0">
+                <false>
+                    <snews lines="<dec by="1"><param _name="lines"/></dec>">
+                        <stringChunk mode="allBefore" reverse find="$$">
+                            <param parse _name="_body" />
+                        </stringChunk>
+                    </snews>
+                </false>
+                <true>
+                    <setVar _name="newsleft"><stringChunk mode="allBefore" reverse find="$$"><param parse _name="_body"/></stringChunk></setVar>
+                </true>
+            </equal>
+        </false>
+    </equal>
+</function>

@@ -1,0 +1,50 @@
+<include>
+    inc/stdinc.xtp
+</include>
+<function _name="validate">
+    <setVar _name="correct">true</setVar>
+    <setVar _name="dbID"><param _name="_recordID"/></setVar>
+</function>
+<dbSelect>
+    users
+</dbSelect>
+<setVar _name="correct"/>
+<dbQuery callback="validate">"user" IS "<param _name="username"/>" AND "password" IS "<param _name="password"/>"</dbQuery>
+<equal left="<getVar _name="correct"/>" right="true">
+    <true>
+        <setVar _name="rand"><random/></setVar>
+        <dbChange _name="rand" _recordID="<getVar _name="dbID"/>">
+            <getVar _name="rand" />
+        </dbChange>
+        <setCookie _name="_user">
+            <param _name="username" />
+        </setCookie>
+        <setCookie _name="_hash">
+            <hash>
+                <param _name="_remote-addr" />
+                <getVar _name="rand" />
+            </hash>
+        </setCookie>
+        <equal left="<param _name="target"/>" right="">
+            <true>
+                <refresh>
+                    /
+                </refresh>
+            </true>
+            <false>
+                <refresh>
+                    <param _name="target" />
+                </refresh>
+            </false>
+        </equal>
+        <hthmin />
+    </true>
+    <false>
+        <rlp>
+            /login.xtp?target=
+            <escape>
+                <param _name="target" />
+            </escape>
+        </rlp>
+    </false>
+</equal>

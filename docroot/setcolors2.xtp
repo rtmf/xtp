@@ -1,0 +1,109 @@
+<include>
+    inc/stdinc.xtp
+</include>
+<function _name="handlechange">
+    <dbChange _recordID="<param _name="_recordID"/>" _name="body-background">
+        <stringChunk mode="allBefore" find=";">
+            <getVar _name="colors" />
+        </stringChunk>
+    </dbChange>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="table-bg">
+        <stringChunk mode="allBefore" find=";">
+            <getVar _name="colors" />
+        </stringChunk>
+    </dbChange>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="table-border">
+        <stringChunk mode="allBefore" find=";">
+            <getVar _name="colors" />
+        </stringChunk>
+    </dbChange>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="table-head-bg">
+        <stringChunk mode="allBefore" find=";">
+            <getVar _name="colors" />
+        </stringChunk>
+    </dbChange>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="table-head-fg">
+        <stringChunk mode="allBefore" find=";">
+            <getVar _name="colors" />
+        </stringChunk>
+    </dbChange>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="table-small-head-bg">
+        <stringChunk mode="allBefore" find=";">
+            <getVar _name="colors" />
+        </stringChunk>
+    </dbChange>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="table-small-head-fg">
+        <stringChunk mode="allBefore" find=";">
+            <getVar _name="colors" />
+        </stringChunk>
+    </dbChange>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="text-fg">
+        <stringChunk mode="allBefore" find=";">
+            <getVar _name="colors" />
+        </stringChunk>
+    </dbChange>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="link">
+        <stringChunk mode="allBefore" find=";">
+            <getVar _name="colors" />
+        </stringChunk>
+    </dbChange>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="link-visited">
+        <stringChunk mode="allBefore" find=";">
+            <getVar _name="colors" />
+        </stringChunk>
+    </dbChange>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="link-hover">
+        <stringChunk mode="allBefore" find=";">
+            <getVar _name="colors" />
+        </stringChunk>
+    </dbChange>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="link-hover-bg">
+        <stringChunk mode="allBefore" find=";">
+            <getVar _name="colors" />
+        </stringChunk>
+    </dbChange>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="menu-active-fg">
+        <stringChunk mode="allBefore" find=";">
+            <getVar _name="colors" />
+        </stringChunk>
+    </dbChange>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="table-small-small-head-bg">
+        <stringChunk mode="allBefore" find=";">
+            <getVar _name="colors" />
+        </stringChunk>
+    </dbChange>
+    <setVar _name="colors"><stringChunk mode="allAfter" find=";"><getVar _name="colors"/></stringChunk></setVar>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="table-small-small-head-fg">
+        <stringChunk mode="allBefore" find=";">
+            <getVar _name="colors" />
+        </stringChunk>
+    </dbChange>
+</function>
+<auth this="/settings.xtp">
+    <dbSelect>
+        users
+    </dbSelect>
+    <equal left="<param _name="colors"/>" right="">
+        <false>
+            <setVar _name="colors"><param _name="colors"/></setVar>
+            <dbQuery callback="handlechange">"user" IS "<getVar _name="_user"/>"</dbQuery>
+        </false>
+    </equal>
+    <refresh>
+        /settings.xtp
+    </refresh>
+    <hthmin />
+</auth>

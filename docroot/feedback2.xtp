@@ -1,0 +1,38 @@
+<include>
+    inc/stdinc.xtp
+</include>
+<hth view="<param _name="_this"/>" title="Feedback sent.">
+    <buildTable title="Feedback">
+        <column>
+            <buildMenuDB file="menu" title="Menu" curr="Feedback2" />
+        </column>
+        <column width="100%">
+            <buildSubTable title="Your feedback...">
+                <column>
+                    Your feedback,
+                    <br />
+                    <div style="font-family:monospace;white-space:pre;">
+                        <param _name="msg" />
+                    </div>
+                    <br />
+                    was submitted.
+                    <br />
+                    <log file="feedback">
+                        <param _name="_remote-addr" />
+                        (
+                        <param _name="_remote-host" />
+                        ) with 
+                        <param _name="_user-agent" />
+                        :
+
+                        <param _name="msg" />
+                        
+$$$
+
+                    </log>
+                </column>
+            </buildSubTable>
+        </column>
+    </buildTable>
+</hth>
+

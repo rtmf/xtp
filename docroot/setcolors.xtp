@@ -1,0 +1,75 @@
+<include>
+    inc/stdinc.xtp
+</include>
+<function _name="handlechange">
+    <dbChange _recordID="<param _name="_recordID"/>" _name="body-background">
+        <getVar _name="body-background" />
+    </dbChange>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="table-bg">
+        <getVar _name="table-bg" />
+    </dbChange>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="table-border">
+        <getVar _name="table-border" />
+    </dbChange>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="table-head-bg">
+        <getVar _name="table-head-bg" />
+    </dbChange>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="table-head-fg">
+        <getVar _name="table-head-fg" />
+    </dbChange>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="table-small-head-bg">
+        <getVar _name="table-small-head-bg" />
+    </dbChange>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="table-small-head-fg">
+        <getVar _name="table-small-head-fg" />
+    </dbChange>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="text-fg">
+        <getVar _name="text-fg" />
+    </dbChange>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="link">
+        <getVar _name="link" />
+    </dbChange>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="link-visited">
+        <getVar _name="link-visited" />
+    </dbChange>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="link-hover">
+        <getVar _name="link-hover" />
+    </dbChange>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="link-hover-bg">
+        <getVar _name="link-hover-bg" />
+    </dbChange>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="menu-active-fg">
+        <getVar _name="menu-active-fg" />
+    </dbChange>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="table-small-small-head-bg">
+        <getVar _name="table-small-small-head-bg" />
+    </dbChange>
+    <dbChange _recordID="<param _name="_recordID"/>" _name="table-small-small-head-fg">
+        <getVar _name="table-small-small-head-fg" />
+    </dbChange>
+</function>
+<auth this="/settings.xtp">
+    <setVar _name="body-background"><param _name="body-background"/></setVar>
+    <setVar _name="table-bg"><param _name="table-bg"/></setVar>
+    <setVar _name="table-border"><param _name="table-border"/></setVar>
+    <setVar _name="table-head-bg"><param _name="table-head-bg"/></setVar>
+    <setVar _name="table-head-fg"><param _name="table-head-fg"/></setVar>
+    <setVar _name="table-small-head-bg"><param _name="table-small-head-bg"/></setVar>
+    <setVar _name="table-small-head-fg"><param _name="table-small-head-fg"/></setVar>
+    <setVar _name="text-fg"><param _name="text-fg"/></setVar>
+    <setVar _name="link"><param _name="link"/></setVar>
+    <setVar _name="link-visited"><param _name="link-visited"/></setVar>
+    <setVar _name="link-hover"><param _name="link-hover"/></setVar>
+    <setVar _name="link-hover-bg"><param _name="link-hover-bg"/></setVar>
+    <setVar _name="menu-active-fg"><param _name="menu-active-fg"/></setVar>
+    <setVar _name="table-small-small-head-bg"><param _name="table-small-small-head-bg"/></setVar>
+    <setVar _name="table-small-small-head-fg"><param _name="table-small-small-head-fg"/></setVar>
+    <dbSelect>
+        users
+    </dbSelect>
+    <dbQuery callback="handlechange">"user" IS "<getVar _name="_user"/>"</dbQuery>
+    <refresh>
+        /settings.xtp
+    </refresh>
+    <hthmin />
+</auth>

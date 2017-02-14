@@ -1,0 +1,211 @@
+<function _name="gTi">
+    <getVar _name="$$Tid" />
+</function>
+<function _name="iTi">
+    <setVar _name="$$Tid"><hash><gTi/><random/></hash></setVar>
+    <gTi />
+</function>
+<function _name="buildTable">
+    <table class="pbody" style="width:100%;">
+        <tr>
+            <td nowrap align="center" class="thead" style="font-size:22px; height:0;">
+                <table class="pbody2" style="width:100%;">
+                    <tr>
+                        <td nowrap align="center" class="thead" style="font-size:22px; height:0;">
+                            <param _name="title" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="pbody">
+                <table class="pbody" style="width:100%;">
+                    <tr class="pbody" style="height:100%;">
+                        <param parse _name="_body" />
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <equal left="<param _name="collapse"/>" right="yes">
+        <true>
+            <script type="text/javascript">
+                
+invert("tt
+                <gTi />
+                ");
+
+            </script>
+        </true>
+    </equal>
+    <div style="height:4px;">
+        <!---->
+    </div>
+</function>
+<function _name="buildSubTable">
+    <table class="tbody" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <table class="tborder" style="width:100%;display:block;">
+                    <tr style="width:100%;">
+                        <td nowrap align="center" class="theadsmall" style="font-size:16px; height:0;width:100%">
+                            <param _name="title" />
+                        </td>
+                        <td width="0" class="tbody" style="font-size:16px; height:0; width:0">
+                            <a href="#" onClick="javascript:invert('tt<iTi/>');return false;">
+                                <img src="/images/imgroll.gif" alt="Collapse" />
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <table class="tbody" cellspacing="0" cellpadding="0" width="100%">
+                    <tr>
+                        <td width="100%" class="tbody">
+                            <table id="tt<gTi/>" style="">
+                                <tr style="height:100%;">
+                                    <param parse _name="_body" />
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <equal left="<param _name="collapse"/>" right="yes">
+        <true>
+            <script type="text/javascript">
+                
+invert("tt
+                <gTi />
+                ");
+
+            </script>
+        </true>
+    </equal>
+    <div style="height:4px;">
+        <!---->
+    </div>
+</function>
+<function _name="buildSubSubTable">
+    <table class="tbody" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+            <td width="100%">
+                <table class="pbody2" width="100%" cellspacing="1px" cellpadding="1px">
+                    <tr>
+                        <td nowrap width="100%" align="center" class="theadsmallsmall" style="font-size:14px; height:0; font-style:italic;width:100%">
+                            <param _name="title" />
+                        </td>
+                        <td width="0" class="tbody" style="font-size:14px; height:0;width:0">
+                            <a href="#" onClick="javascript:invert('tt<iTi/>');return false;">
+                                <img src="/images/imgroll.gif" alt="Collapse" />
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <table class="stbody" cellspacing="0" cellpadding="0" width="100%">
+                    <tr>
+                        <td colspan="2" class="tbody">
+                            <table id="tt<gTi/>" style="">
+                                <tr style="height:100%;">
+                                    <param parse _name="_body" />
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <equal left="<param _name="collapse"/>" right="yes">
+        <true>
+            <script type="text/javascript">
+                
+invert("tt
+                <gTi />
+                ");
+
+            </script>
+        </true>
+    </equal>
+    <div style="height:4px;">
+        <!---->
+    </div>
+</function>
+<function _name="buildNPSubTable">
+    <table class="tbody" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <table class="tborder" style="display:block;">
+                    <tr>
+                        <td nowrap width="100%" align="center" class="theadsmall" style="font-size:16px; height:0;width:100%">
+                            <param _name="title" />
+                        </td>
+                        <td nowrap width="0" class="tbody" style="font-size:16px; height:0;width:0">
+                            <a href="#" onClick="javascript:invert('tt<iTi/>');return false;">
+                                <img src="/images/imgroll.gif" alt="Collapse" />
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <table class="mtbody" cellspacing="0" cellpadding="0" width="100%">
+                    <tr>
+                        <td colspan="2" class="tbody">
+                            <table cellspacing="0" cellpadding="0" id="tt<gTi/>" style="">
+                                <tr style="height:100%;width:100%">
+                                    <param parse _name="_body" />
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <equal left="<param _name="collapse"/>" right="yes">
+        <true>
+            <script type="text/javascript">
+                
+invert("tt
+                <gTi />
+                ");
+
+            </script>
+        </true>
+    </equal>
+    <div style="height:4px;">
+        <!---->
+    </div>
+</function>
+<function _name="column">
+    <equal left="<param _name="width"/>" right="">
+        <true>
+            <td valign="top" align="left">
+                <param parse _name="_body" />
+            </td>
+        </true>
+        <false>
+            <td valign="top" align="left" width="<param parse _name="width"/>">
+                <param parse _name="_body" />
+            </td>
+        </false>
+    </equal>
+</function>
+<function _name="nwcolumn">
+    <equal left="<param _name="width"/>" right="">
+        <true>
+            <td nowrap valign="top" align="left">
+                <param parse _name="_body" />
+            </td>
+        </true>
+        <false>
+            <td nowrap valign="top" align="left" width="<param parse _name="width"/>">
+                <param parse _name="_body" />
+            </td>
+        </false>
+    </equal>
+</function>
+<function _name="newrow">
+    </tr> <tr>
+</function>

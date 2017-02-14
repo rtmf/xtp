@@ -1,0 +1,111 @@
+<function _name="amp">
+    <equal left="<stringChunk mode="allBefore" find="&amp;"><param _name="_body"/></stringChunk>" right="">
+        <true>
+            <equal left="<stringChunk mode="allAfter" find="&amp;"><param _name="_body"/></stringChunk>" right="">
+                <true>
+                    <equal left="<param _name="_body"/>" right="&amp;">
+                        <false>
+                            <param _name="_body" />
+                        </false>
+                        <true>
+                            &
+                        </true>
+                    </equal>
+                </true>
+                <false>
+                    &
+                    <amp>
+                        <stringChunk mode="allAfter" find="&amp;">
+                            <param _name="_body" />
+                        </stringChunk>
+                    </amp>
+                </false>
+            </equal>
+        </true>
+        <false>
+            <stringChunk mode="allBefore" find="&amp;">
+                <param _name="_body" />
+            </stringChunk>
+            &
+            <amp>
+                <stringChunk mode="allAfter" find="&amp;">
+                    <param _name="_body" />
+                </stringChunk>
+            </amp>
+        </false>
+    </equal>
+</function>
+<function _name="backslash">
+    <buildSubTable title="Slashdot" collapse="<getVar _name="slash::collapse"/>">
+        <column>
+            <param _name="_body" />
+        </column>
+    </buildSubTable>
+</function>
+<function _name="story">
+    <buildSubSubTable title="<getVar _name="stTitle"/><br/>" collapse="">
+        <column width="100%">
+            (
+            <getVar _name="stTime" />
+            ) From the 
+            <getVar _name="stDept" />
+             department
+            <br />
+            By:
+            <a href="http://slashdot.org/~<getVar _name="stAuthor"/>">
+                <getVar _name="stAuthor" />
+            </a>
+            <br />
+            To:
+            <a href="http://slashdot.org/">
+                <getVar _name="stSection" />
+            </a>
+            <br />
+            Comments:
+            <getVar _name="stComments" />
+            <br />
+            <a href="<getVar _name="stURL"/>">
+                <getVar _name="stTitle" />
+            </a>
+        </column>
+        <column width="0">
+            <a href="http://slashdot.org/search.pl?topic=<getVar _name="stTopic"/>">
+                <img src="http://slashdot.org/topics/<getVar _name="stImage"/>" alt="<getVar _name="stImage"/>" />
+            </a>
+            <br />
+        </column>
+    </buildSubSubTable>
+</function>
+<function _name="title">
+    <setVar _name="stTitle"><amp><param _name="_body"/></amp></setVar>
+</function>
+<function _name="url">
+    <setVar _name="stURL"><param _name="_body"/></setVar>
+</function>
+<function _name="time">
+    <setVar _name="stTime"><param _name="_body"/></setVar>
+</function>
+<function _name="author">
+    <setVar _name="stAuthor"><param _name="_body"/></setVar>
+</function>
+<function _name="department">
+    <setVar _name="stDept"><param _name="_body"/></setVar>
+</function>
+<function _name="topic">
+    <setVar _name="stTopic"><param _name="_body"/></setVar>
+</function>
+<function _name="comments">
+    <setVar _name="stComments"><param _name="_body"/></setVar>
+</function>
+<function _name="section">
+    <setVar _name="stSection"><param _name="_body"/></setVar>
+</function>
+<function _name="image">
+    <setVar _name="stImage"><param _name="_body"/></setVar>
+</function>
+<function _name="doSlash">
+    <setVar _name="slash::collapse"><param _name="collapse"/></setVar>
+    <winclude>
+        http://slashdot.org/slashdot.xml
+    </winclude>
+</function>

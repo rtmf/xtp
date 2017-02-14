@@ -1,0 +1,27 @@
+<include>
+    inc/template.xtp
+</include>
+<include>
+    inc/menudb.xtp
+</include>
+<include>
+    inc/htheader.xtp
+</include>
+<include>
+    inc/stdfunc.xtp
+</include>
+<include>
+    inc/news.xtp
+</include>
+<include>
+    inc/auth.xtp
+</include>
+<setVar _name="_user"><getCookie _name="_user"/></setVar>
+<init />
+<function _name="buildMenu">
+    <H5>
+        <B>
+            FIXME
+        </B>
+    </H5>
+</function>

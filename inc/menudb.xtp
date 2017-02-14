@@ -1,0 +1,211 @@
+<function _name="buildMenuDB">
+    <setVar _name="contains">false</setVar>
+    <setVar _name="levl">1</setVar>
+    <setVar _name="curr"><param _name="curr"/></setVar>
+    <setVar _name="usecache">true</setVar>
+    <dbSelect>
+        <param _name="file" />
+        cache
+    </dbSelect>
+    <setVar _name="randRet"/>
+    <dbQuery callback="getrand">"rand" LIKE "r*"</dbQuery>
+    <equal left="<getVar _name="randRet"/>" right="">
+        <true>
+            <dbSelect>
+                <param _name="file" />
+                cache
+            </dbSelect>
+            <dbQuery callback="dbdel"/>
+            <setVar _name="usecache">false</setVar>
+        </true>
+    </equal>
+    <setVar _name="randRet2"><getVar _name="randRet"/></setVar>
+    <dbSelect>
+        <param _name="file" />
+    </dbSelect>
+    <setVar _name="randRet"/>
+    <dbQuery callback="getrand">"rand" LIKE "r*"</dbQuery>
+    <equal left="<getVar _name="randRet"/>" right="">
+        <true>
+            <dbChange _recordID="<dbCreate/>" _name="rand">
+                r
+                <random />
+                <random />
+            </dbChange>
+            <dbQuery callback="getrand">"rand" LIKE "r*"</dbQuery>
+            <setVar _name="usecache">false</setVar>
+        </true>
+    </equal>
+    <equal left="<getVar _name="randRet"/>" right="<getVar _name="randRet2"/>">
+        <false>
+            <dbSelect>
+                <param _name="file" />
+                cache
+            </dbSelect>
+            <dbQuery callback="dbdel"/>
+            <dbChange _recordID="<dbCreate/>" _name="rand">
+                <getVar _name="randRet" />
+            </dbChange>
+            <setVar _name="usecache">false</setVar>
+        </false>
+    </equal>
+    <equal left="<getVar _name="usecache"/>" right="true">
+        <true>
+            <dbSelect>
+                <param _name="file" />
+                cache
+            </dbSelect>
+            <setVar _name="menuRet"/>
+            <dbQuery callback="getmenu">"curr" IS "<getVar _name="curr"/>"</dbQuery>
+            <equal left="<getVar _name="menuRet"/>" right="">
+                <true>
+                    <setVar _name="usecache">false</setVar>
+                </true>
+            </equal>
+        </true>
+    </equal>
+    <equal left="<getVar _name="usecache"/>" right="true">
+        <true>
+            <getVar _name="menuRet" />
+        </true>
+        <false>
+            <dbSelect>
+                <param _name="file" />
+            </dbSelect>
+            <setVar _name="menutemp"><buildNPSubTable title="<param _name="title"/>"><nwcolumn><dbQuery callback="menuDoItem">"owner" IS "0" AND "next" IS "0"</dbQuery></nwcolumn></buildNPSubTable></setVar>
+            <dbSelect>
+                <param _name="file" />
+                cache
+            </dbSelect>
+            <setVar _name="dbID"><dbCreate/></setVar>
+            <dbChange _recordID="<getVar _name="dbID"/>" _name="curr">
+                <getVar _name="curr" />
+            </dbChange>
+            <dbChange _recordID="<getVar _name="dbID"/>" _name="menu">
+                <getVar _name="menutemp" />
+            </dbChange>
+            <getVar _name="menutemp" />
+        </false>
+    </equal>
+    <include noparse>
+        inc/textad.inc
+    </include>
+    <!--
+    <table cellpadding=1 cellspacing=1 style="color:<getVar _name=text-fg />;background-color:<getVar _name=table-border />;max-width:100%;width:100%">
+    <tr>
+    <td width=100% style="color:<getVar _name=text-fg />;background-color:<getVar _name=table-bg />">
+    <a href="http://www.linbo.com/">linbo.com</a>\ website exchange.
+    </td>
+    </tr>
+    <tr>
+    <td width=100% style="color:<getVar _name=text-fg />;background-color:<getVar _name=table-bg />">
+    <script type="text/javascript" language=javascript src="http://www.linbo.com/link.php?id=1721&amp;fontsize=-1&amp;width=100%25&amp;fm=1&amp;bgcolor=<getVar _name="table-bg" />&amp;fontsize=&amp;textcolor=&amp;bordercolor=<getVar _name="table-border" />&amp;num=9&amp;font=times,serif">\n
+    </script>
+    </td>
+    </tr>
+    </table>
+    -->
+</function>
+<function _name="getmenu">
+    <setVar _name="menuRet"><param _name="menu"/></setVar>
+</function>
+<function _name="getrand">
+    <setVar _name="randRet"><param _name="rand"/></setVar>
+</function>
+<function _name="dbdel">
+    <dbDelete>
+        <param _name="_recordID" />
+    </dbDelete>
+</function>
+<function _name="menuDoItem">
+    <equal left="<param _name="text"/>" right="">
+        <true>
+            <div class="dhr">
+                <!--
+        -->
+            </div>
+        </true>
+        <false>
+            <setVar _name="thisisit">false</setVar>
+            <equal left="<getVar _name="curr"/>" right="<param _name="text"/>">
+                <false>
+                    <a href="<param _name="link"/>">
+                        <param _name="text" />
+                    </a>
+                    <br />
+                </false>
+                <true>
+                    <span class="masp">
+                        <param _name="text" />
+                    </span>
+                    <br />
+                    <setVar _name="contains">true</setVar>
+                    <setVar _name="thisisit">true</setVar>
+                </true>
+            </equal>
+            <equal left="<param _name="submenu"/>" right="">
+                <false>
+                    <setVar _name="t<getVar _name="levl"/>Name">t<random/></setVar>
+                    <table cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td nowrap valign="top">
+                                <a href="#" onClick="javascript:invert('<getVar _name="t<getVar _name="levl"/>Name"/>');return false;">
+                                    <img src="/images/menuexpand.gif" alt="---&gt;" />
+                                </a>
+                            </td>
+                            <td nowrap class="dvr" style="width:1px;">
+                                <div class="dvr" style="width:1px;height:100%;">
+                                    <!--\n-->
+                                </div>
+                            </td>
+                            <td nowrap style="width:100%;" align="left">
+                                <equal left="<getVar _name="contains"/>" right="true">
+                                    <true>
+                                        <setVar _name="contains">false</setVar>
+                                        <div id="<getVar _name="t<getVar _name="levl"/>Name"/>" style="display:block">
+                                            <setVar _name="thisisit<getVar _name="levl"/>"><getVar _name="thisisit"/></setVar>
+                                            <setVar _name="levl"><inc by="1"><getVar _name="levl"/></inc></setVar>
+                                            <dbQuery callback="menuDoItem">"next" IS "0" AND "owner" IS "<param _name="submenu"/>"</dbQuery>
+                                            <setVar _name="levl"><dec by="1"><getVar _name="levl"/></dec></setVar>
+                                            <equal left="<getVar _name="thisisit<getVar _name="levl"/>"/>" right="true">
+                                                <false>
+                                                    <script type="text/javascript">
+                                                        <!--
+ invert('
+                                                        <getVar _name="t<getVar _name="levl"/>Name" />
+                                                        ');
+ --> 
+                                                    </script>
+                                                </false>
+                                            </equal>
+                                        </div>
+                                        <setVar _name="contains">true</setVar>
+                                    </true>
+                                    <false>
+                                        <div id="<getVar _name="t<getVar _name="levl"/>Name"/>" style="display:block">
+                                            <setVar _name="levl"><inc by="1"><getVar _name="levl"/></inc></setVar>
+                                            <dbQuery callback="menuDoItem">"next" IS "0" AND "owner" IS "<param _name="submenu"/>"</dbQuery>
+                                            <setVar _name="levl"><dec by="1"><getVar _name="levl"/></dec></setVar>
+                                            <equal left="<getVar _name="contains"/>" right="false">
+                                                <true>
+                                                    <script type="text/javascript">
+                                                        <!--
+ invert('
+                                                        <getVar _name="t<getVar _name="levl"/>Name" />
+                                                        ');
+ --> 
+                                                    </script>
+                                                </true>
+                                            </equal>
+                                        </div>
+                                    </false>
+                                </equal>
+                            </td>
+                        </tr>
+                    </table>
+                </false>
+            </equal>
+        </false>
+    </equal>
+    <dbQuery callback="menuDoItem">"owner" IS "<param _name="owner"/>" AND "next" IS "<inc by="1"><param _name="next"/></inc>"</dbQuery>
+</function>

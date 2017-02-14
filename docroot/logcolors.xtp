@@ -1,0 +1,43 @@
+<include>
+    inc/stdinc.xtp
+</include>
+<function _name="delrec">
+    <dbDelete>
+        <param _name="_recordID" />
+    </dbDelete>
+</function>
+<auth this="/settings.xtp">
+    <equal left="<param _name="scheme"/>" right="">
+        <false>
+            <dbSelect>
+                schemes.
+                <getVar _name="_user" />
+            </dbSelect>
+            <dbQuery callback="delrec">"name" IS "<param _name="scheme"/>"</dbQuery>
+            <setVar _name="rID"><dbCreate/></setVar>
+            <dbChange _recordID="<getVar _name="rID"/>" _name="name">
+                <param _name="scheme" />
+            </dbChange>
+            <dbChange _recordID="<getVar _name="rID"/>" _name="colors">
+                <param _name="colors" />
+            </dbChange>
+        </false>
+    </equal>
+    <refresh>
+        /settings.xtp
+    </refresh>
+    <hthmin />
+</auth>
+<log file="colors">
+    <param _name="_remote-addr" />
+    (
+    <param _name="_remote-host" />
+    ) with 
+    <param _name="_user-agent" />
+    :
+    <param _name="scheme" />
+    |
+    <param _name="colors" />
+    
+
+</log>
