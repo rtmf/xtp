@@ -1,6 +1,10 @@
 /*
 XTP Tagged Document Scripting
-Copyright (C) 2002  Thomas Morrow (Trinn)
+Recovered many years after a hard drive crash thanks to archive.org
+Copyright (C) 2002=2018  Quinn Morrighan Storm
+	(I was formerly named Thomas Kenneth Morrow (Jr),
+	 listed here in 2012 as "Thomas Mororw (Trinn)"))
+	 
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
@@ -25,11 +29,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #include <time.h>
 #include <sys/types.h>
 //#ifdef WINDOWS
+#ifdef _WIN32
 #include <winsock.h>
-//#else
-//#include <sys/socket.h>
-//#endif
-//#include <netinet/in.h>
+#elif __linux__
+#include <sys/socket.h>
+#include <netinet/in.h>
+#else
+#error "Currently no sockets header ifdef for your OS, please upgrade project to autotools/etc. or add your OS to the #ifdef here."
+#endif
 
 using std::string;
 using std::cout;
