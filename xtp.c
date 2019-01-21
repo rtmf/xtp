@@ -1,7 +1,8 @@
 /*
 XTP Tagged Document Scripting
 Recovered many years after a hard drive crash thanks to archive.org
-Copyright (C) 2002=2018  Quinn Morrighan Storm
+Copyright (C) 2002-2019  Quinn Morrighan Storm (Rainbow: the Mad Faerie)
+	<rtmf@beautifulsunrise.org> <livinglatexkali@gmail.com>
 	(I was formerly named Thomas Kenneth Morrow (Jr),
 	 listed here in 2012 as "Thomas Mororw (Trinn)"))
 	 
